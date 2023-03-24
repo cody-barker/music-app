@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import './App.css';
 import Player from './Player/Player'
 import {songsData} from './Player/audio.js'
@@ -12,6 +12,15 @@ function App() {
   console.log(currentSong)
 
   const audioElem = useRef();
+
+  useEffect(() => {
+    if(isPlaying) {
+      audioElem.current.play()
+    }
+    else {
+      audioElem.current.pause()
+    }
+  },[isPlaying])
 
   return (
     <div className="App">

@@ -2,10 +2,10 @@ import React from 'react';
 import './player.scss';
 import {BsFillPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, BsSkipEndCircleFill, BsFillSkipEndCircleFill} from 'react-icons/bs'
 
-function Player ({audioElem}) {
+function Player ({audioElem, isPlaying, setIsPlaying}) {
 
     function playPause() {
-        audioElem.current.play();
+        setIsPlaying(!isPlaying)
     }
 
     return(
